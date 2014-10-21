@@ -22,7 +22,7 @@
          * @return string Retourne la valeur du tableau
          */
         public function get($key) {
-            $index = extract('.', $key);
+            $index = explode('.', $key);
             return $this->getValue($index, $this->items);
         }
 
