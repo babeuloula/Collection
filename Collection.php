@@ -201,6 +201,40 @@
         }
 
 
+        /**
+         * Récupère le premier élément du tableau
+         *
+         * @param string $key Clé du premier élément du tableau à récupérer
+         *
+         * @return Collection, string Cette fonction retourne le premier élément du tableau
+         */
+        public function first($key = false) {
+            if($key) {
+                $first = new Collection($this->items);
+                return $first->extract($key)->first();
+            } else {
+                return reset($this->items);
+            }
+        }
+
+
+        /**
+         * Récupère le dernier élément du tableau
+         *
+         * @param string $key Clé du premier élément du tableau à récupérer
+         *
+         * @return Collection, string Cette fonction retourne le dernier élément du tableau
+         */
+        public function last($key = false) {
+            if($key) {
+                $last = new Collection($this->items);
+                return $last->extract($key)->last();
+            } else {
+                return end($this->items);
+            }
+        }
+
+
 
         /**
          * (PHP 5 &gt;= 5.0.0)<br/>
