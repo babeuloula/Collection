@@ -197,7 +197,8 @@
          * @return boolean Cette fonction retourne TRUE en cas de succès ou FALSE si une erreur survient
          */
         public function shuffle() {
-            return shuffle($this->items);
+            shuffle($this->items);
+            return new Collection($this->items);
         }
 
 
