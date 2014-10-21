@@ -168,26 +168,26 @@
          * Trie les éléments d'un tableau
          *
          * @param string $type Type de tri du tableau (nat, natcase, asc, desc). Par defaut la fonction tri en nat
-         * @param string $key Nom de la clé en fonction de laquelle il faut trier. Par defaut aucune
+         * @param boolean $key Si la fonction doit trier en fonction des clés
          *
-         * @return boolean Cette fonction retourne TRUE en cas de succès ou FALSE si une erreur survient
+         * @return Collection Cette fonction retourne le tableau trié
          */
         public function sort($type = 'nat', $key = false) {
             if($type == 'asc' && !$key) {
-                return asort($this->items);
+                asort($this->items);
             } else if($type == 'asc' && $key) {
-                return ksort($this->items);
+                ksort($this->items);
             } else if($type == 'desc' && !$key) {
-                return arsort($this->items);
+                arsort($this->items);
             } else if($type == 'desc' && $key) {
-                return krsort($this->items);
+                krsort($this->items);
             } else if($type == 'nat') {
-                return natsort($this->items);
+                natsort($this->items);
             } else if($type == 'natcase') {
-                return natcasesort($this->items);
-            } else {
-                return null;
+                natcasesort($this->items);
             }
+
+            return new Collection($this->items);
         }
 
 
