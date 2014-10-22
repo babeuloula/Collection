@@ -1,5 +1,8 @@
 <?php
 
+    namespace BaBeuloula;
+    use IteratorAggregate, ArrayAccess;
+
     class Collection implements IteratorAggregate, ArrayAccess {
 
         private $items;
