@@ -1,9 +1,8 @@
 <?php
 
-    namespace BaBeuloula;
-    use IteratorAggregate, ArrayAccess;
+    namespace Core;
 
-    class Collection implements IteratorAggregate, ArrayAccess {
+    class Collection implements \IteratorAggregate, \ArrayAccess {
 
         private $items;
 
@@ -239,6 +238,16 @@
         }
 
 
+        /**
+         * Cette fonction retourne le nombre total d'entrée
+         *
+         * @return int Cette fonction retourne le nombre total d'entrée
+         */
+        public function count() {
+            return count($this->items);
+        }
+
+
 
         /**
          * (PHP 5 &gt;= 5.0.0)<br/>
@@ -314,6 +323,6 @@
          * <b>Traversable</b>
          */
         public function getIterator () {
-            return new ArrayIterator($this->items);
+            return new \ArrayIterator($this->items);
         }
     }
